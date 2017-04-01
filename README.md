@@ -56,12 +56,14 @@ uag
 age
 ges
 
->>> grams = ng.syllableNgram(u'അക്ഷരമാല',4)
+>>> grams = ng.syllableNgram(u'അക്ഷരമാല',2)
 >>> for gram in grams:
 ...     print("".join(gram))
 
-അക്ഷരമ
-ക്ഷരമല
+അക്ഷ
+ക്ഷര
+രമാ
+മാല
 
 ```
 ## Tests
