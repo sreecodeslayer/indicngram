@@ -20,11 +20,15 @@
 #
 import indicsyllabifier
 
+from libindic.normalizer import Normalizer
 
 class Ngram:
     """
     Ngram class.You need to create an object to use the function
     """
+    def __init__(self):
+        self.norm = Normalizer()
+        self.syll = indicsyllabifier.getInstance()
 
     def syllableNgram(self, text, window_size=2):
         """
@@ -38,9 +42,12 @@ class Ngram:
         words = text.split(" ")
         ngrams = []
         for word in words:
-            s = indicsyllabifier.getInstance()
+            # s = indicsyllabifier.getInstance()
             # TODO-Normalize before taking ngram!!!
-            syllables = s.syllabify(word)
+
+            word = self.norm.normalize(word)
+
+            syllables = self.syll.syllabify(word)
             syllable_count = len(syllables)
             window_start = 0
             window_end = 0
@@ -65,6 +72,8 @@ class Ngram:
         word = word.strip()
         ngrams = []
         # TODO-Normalize before taking ngram!!!
+        word = self.norm.normalize(word)
+
         letter_count = len(word)
         window_start = 0
         window_end = 0
