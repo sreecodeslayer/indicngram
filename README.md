@@ -23,7 +23,8 @@ size 4 or more is simply called an "n-gram".
 1. Clone the repository `git clone https://github.com/libindic/indicngram.git`
 2. Change to the cloned directory `cd indicngram`
 3. Run setup.py to create installable source `python setup.py sdist`
-3. Install using pip `pip install dist/libindic-ngram*.tar.gz`
+4. Install using pip `pip install dist/libindic-ngram*.tar.gz`
+5. Install normalizer from [here](https://github.com/libindic/normalizer)
 
 ## Usage
 ```
@@ -54,6 +55,14 @@ gua
 uag
 age
 ges
+
+>>> grams = ng.syllableNgram(u'അക്ഷരമാല',4)
+>>> for gram in grams:
+...     print("".join(gram))
+
+അക്ഷരമ
+ക്ഷരമല
+
 ```
 ## Tests
 Run tests with ``python setup.py test``
